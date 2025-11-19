@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSSD Intranet Portal</title>
+    <style>
+        /* CSS Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a261a; /* LSSD Dark Green Tone */
+            background-image: linear-gradient(135deg, #1a261a 0%, #0d140d 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container Utama */
+        .menu-container {
+            background-color: #ffffff;
+            width: 400px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+            text-align: center;
+            border-top: 5px solid #d4af37; /* Gold Border */
+        }
+
+        /* Header Logo & Teks */
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #1e4d2b; /* Sheriff Green */
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            color: #666;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* Logo Placeholder (Lingkaran) */
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #1e4d2b;
+            color: #d4af37;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 32px;
+            border: 3px solid #d4af37;
+        }
+
+        /* Gaya Tombol Navigasi */
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #333;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            text-align: left;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        /* Tombol Utama (Laporan) */
+        .btn-primary {
+            background-color: #1e4d2b; /* Green */
+        }
+
+        .btn-primary:hover {
+            background-color: #2a6b3d;
+            border-left: 10px solid #d4af37; /* Gold Hover */
+            padding-left: 25px;
+        }
+
+        /* Tombol Lainnya */
+        .btn-secondary {
+            background-color: #555;
+        }
+
+        .btn-secondary:hover {
+            background-color: #666;
+            border-left: 10px solid #ccc;
+            padding-left: 25px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 10px;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* Ikon Panah kecil di tombol */
+        .btn::after {
+            content: '>';
+            position: absolute;
+            right: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="menu-container">
+        <div class="header">
+            <div class="image.webp"><img src="image.webp" width="100px" alt=""></div>
+            <h1>LSSD Detective Portal</h1>
+            <p>INTERNAL RECORDS SYSTEM</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="follow_up_record.html" class="btn btn-primary">
+                FOLLOW-UP REPORT
+            </a>
+
+            <a href="case_progress_log.html" class="btn btn-primary">
+                CASE PROGRESS LOG
+            </a>
+
+            <a href="Final_report.html" class="btn btn-primary">
+                INVESTIGATOR'S FINAL REPORT
+            </a>
+        </div>
+
+        <div class="footer">
+            AUTHORIZED PERSONNEL ONLY<br>
+            San Andreas State - County of Los Santos
+        </div>
+    </div>
+
+</body>
+</html>

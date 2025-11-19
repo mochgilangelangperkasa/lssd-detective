@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LSSD Follow-Up Investigation</title>
+    <style>
+        /* --- RESET & BODY --- */
+        body { 
+            background-color: #f0f0f0; 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            padding: 20px; 
+            margin: 0;
+        }
+        
+        /* --- CONTAINER --- */
+        .report-container { 
+            background: white; 
+            width: 210mm; 
+            min-height: 297mm; 
+            height: auto; /* Auto height agar kertas memanjang */
+            padding: 40px; 
+            box-sizing: border-box; 
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+            margin-bottom: 50px;
+            position: relative; 
+        }
+        
+        /* --- BORDER --- */
+        .report-border { 
+            border: 2px solid #000; 
+            padding: 20px; 
+            width: 100%;
+            box-sizing: border-box; 
+        }
+        
+        /* --- HEADER --- */
+        .header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; }
+        .header h2, .header h3 { margin: 0; text-transform: uppercase; }
+        
+        .section-header { 
+            background: #e0e0e0; 
+            border: 1px solid #000; 
+            padding: 5px; 
+            font-weight: bold; 
+            font-size: 12px; 
+            margin-top: 20px; 
+            margin-bottom: 5px;
+            text-transform: uppercase; 
+        }
+        
+        /* --- INPUTS (Single Line) --- */
+        input { 
+            width: 100%; 
+            border: none; 
+            border-bottom: 1px solid #000; 
+            font-family: 'Courier New'; 
+            font-size: 14px; 
+            background: transparent; 
+            box-sizing: border-box;
+            padding: 2px;
+        }
+
+        /* --- CONTENT EDITABLE (Pengganti Textarea) --- */
+        .input-area {
+            width: 100%;
+            min-height: 100px; /* Tinggi minimal */
+            border-bottom: 1px solid #000;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: transparent;
+            padding: 5px;
+            box-sizing: border-box;
+            outline: none;
+            display: block;
+            
+            /* Logic Text Wrap */
+            white-space: pre-wrap; 
+            word-wrap: break-word;
+        }
+
+        /* Khusus blok suspect biar mirip desain awal */
+        .suspect-block {
+            border: 1px solid #000; 
+            padding: 10px; 
+            font-family: 'Courier New'; 
+            font-size: 13px; 
+            line-height: 1.6; 
+            min-height: 60px;
+            outline: none;
+            white-space: pre-wrap;
+        }
+        .suspect-block span { font-family: Arial; font-weight: bold; }
+
+        input:focus, .input-area:focus, .suspect-block:focus { outline: none; background: #f9f9f9; }
+        
+        .form-row { display: flex; gap: 15px; margin-bottom: 10px; }
+        .form-group { flex: 1; }
+        label { font-size: 11px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 2px;}
+        
+        /* --- ACTION BUTTONS --- */
+        .action-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 10px; z-index: 9999; }
+        .btn-action { border: 2px solid #1a261a; padding: 12px 20px; font-weight: bold; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3); font-family: 'Arial'; width: 180px; display: flex; justify-content: center; }
+        .btn-pdf { background: #d4af37; color: #1a261a; }
+        .btn-png { background: #1e3a8a; color: white; border-color: #fff; }
+        .btn-action:hover { transform: translateY(-2px); }
+        
+        @media print { 
+            .action-buttons { display: none; } 
+            body { background: white; } 
+            .report-container { border: none; box-shadow: none; width: 100%; margin: 0; padding: 0; } 
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <div class="report-border">
+            <div class="header">
+                <h2>COUNTY OF LOS SANTOS</h2><h3>SHERIFF'S DEPARTMENT</h3><p style="font-size: 12px; font-style: italic;">San Andreas State</p>
+                <div style="margin-top: 15px; text-decoration: underline; font-weight: bold; font-size: 20px;">FOLLOW-UP INVESTIGATION</div>
+            </div>
+            <div style="text-align: right; font-size: 12px; font-weight: bold;">MULTIPLE? <input type="checkbox" style="width: auto;"></div>
+            
+            <div class="form-row"><div class="form-group"><label>DATE OCCURRED:</label><input type="date"></div><div class="form-group"><label>SPECIFIC TYPE (ADW, ETC.):</label><input type="text"></div></div>
+            <div class="form-group"><label>VICTIM:</label><input type="text"></div>
+            
+            <div class="section-header">SUSPECT INFORMATION</div>
+            <div class="suspect-block" contenteditable="true">
+                <span>SUSPECT</span> X, <span>SEX</span> M/F, <span>DESC</span> W/H/B/A/O, <span>NAME</span> Last, First, <span>ADDRESS</span> XXX, <span>CHARGES</span> XXX.
+            </div>
+
+            <div class="section-header">CRIME SUMMARY</div>
+            <div class="input-area" contenteditable="true"></div>
+            
+            <div class="section-header">SUPPLEMENTAL</div>
+            <div class="input-area" contenteditable="true"></div>
+            
+            <div class="section-header">FOLLOW UP INVESTIGATION</div>
+            <div class="input-area" contenteditable="true" style="min-height: 150px;"></div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 50px; border-top: 2px solid #000; padding-top: 10px;">
+                <div style="width: 45%;"><label>REPORTING DEPUTY:</label><input type="text"><label>SERIAL:</label><input type="text"></div>
+                <div style="width: 45%;"><label>SUPERVISOR:</label><input type="text" value="LIEUTENANT HERRY KIM" readonly style="background: #eee;"><label>SERIAL:</label><input type="text" value="12931" readonly style="background: #eee;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <div class="action-buttons">
+        <button onclick="saveAsImage()" class="btn-action btn-png">📸 SAVE AS PNG</button>
+        <button onclick="window.print()" class="btn-action btn-pdf">🖨️ SAVE AS PDF</button>
+    </div>
+    <script>
+        function saveAsImage() {
+            const container = document.querySelector(".report-container");
+            
+            // Fix Input agar terbaca di gambar
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                if(input.type === 'checkbox') {
+                    if(input.checked) input.setAttribute('checked', 'checked');
+                } else {
+                    if(input.value) input.setAttribute('value', input.value);
+                }
+            });
+
+            html2canvas(container, { 
+                scale: 2, 
+                backgroundColor: "#ffffff",
+                useCORS: true,
+                height: container.scrollHeight // Capture full height
+            }).then(canvas => {
+                let link = document.createElement('a'); 
+                link.download = 'LSSD_Report_' + Date.now() + '.png'; 
+                link.href = canvas.toDataURL(); 
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
