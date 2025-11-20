@@ -13,7 +13,14 @@
             padding: 20px; 
             margin: 0;
         }
-        
+        .box-input {
+            width: 40px !important;      /* Lebar kecil */
+            border: 1px solid #000 !important; /* Border kotak penuh */
+            text-align: center;
+            margin-left: 10px;
+            height: 25px;
+            font-weight: bold;
+        }
         /* --- CONTAINER --- */
         .report-container { 
             background: white; 
@@ -120,7 +127,7 @@
                 <h2>COUNTY OF LOS SANTOS</h2><h3>SHERIFF'S DEPARTMENT</h3><p style="font-size: 12px; font-style: italic;">San Andreas State</p>
                 <div style="margin-top: 15px; text-decoration: underline; font-weight: bold; font-size: 20px;">FOLLOW-UP INVESTIGATION</div>
             </div>
-            <div style="text-align: right; font-size: 12px; font-weight: bold;">MULTIPLE? <input type="checkbox" style="width: auto;"></div>
+            <div style="text-align: right; font-size: 12px; font-weight: bold;">MULTIPLE? <input type="text" class="box-input" maxlength="3"></div>
             
             <div class="form-row"><div class="form-group"><label>DATE OCCURRED:</label><input type="date"></div><div class="form-group"><label>SPECIFIC TYPE (ADW, ETC.):</label><input type="text"></div></div>
             <div class="form-group"><label>VICTIM:</label><input type="text"></div>
